@@ -50,8 +50,8 @@ userCltr.login = async(req,res)=>{
 
 userCltr.profile = async (req, res) => {
     try {
-        const user = await User.findById(req.userId)
-        // console.log(user)
+        // const user = await User.findById(req.userId)
+        const user = await User.findById(req.user.userId)
         res.json(user)
     } catch (err) {
         console.log(err)

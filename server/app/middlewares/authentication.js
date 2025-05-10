@@ -7,7 +7,7 @@ export default function authenticationUser(req, res, next) {
     }
     try {
         const tokenData = jwt.verify(token, process.env.JWT_SECRET);
-        req.user = { userId: tokenData.userId };  // Fix: add userId to req.user
+        req.user = { userId: tokenData.userId };  
         next();
     } catch (err) {
         return res.status(401).json({ errors: err.message });
